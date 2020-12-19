@@ -6,7 +6,7 @@ import MonstersContext from "../context/monsters/monsters.context";
 
 const HomePage = () => {
   const monstersContext = useContext(MonstersContext);
-  const { getMonsters, loading, monsters } = monstersContext;
+  const { getMonsters, loading, monsters, deleteMonster } = monstersContext;
 
   const [searchField, setSearchField] = useState("");
 
@@ -29,7 +29,11 @@ const HomePage = () => {
         onChangeSearch={onChangeSearch}
         placeholder={"Search monster"}
       />
-      {loading ? <Spinner /> : <CardList monsters={filteredMonsters} />}
+      {loading ? (
+        <Spinner />
+      ) : (
+        <CardList monsters={filteredMonsters} deleteAction={deleteMonster} />
+      )}
     </div>
   );
 };

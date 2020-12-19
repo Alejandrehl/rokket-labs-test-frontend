@@ -3,10 +3,10 @@ import { Card } from "../card/card.component";
 
 import "./card-list.styles.css";
 
-const CardList = ({ monsters }) => (
+const CardList = ({ monsters, deleteAction }) => (
   <div className="card-list">
     {monsters.map((monster) => (
-      <Card key={monster.id} monster={monster} />
+      <Card key={monster._id} monster={monster} deleteAction={deleteAction} />
     ))}
   </div>
 );
