@@ -13,3 +13,4 @@
 1. [Axios](https://yarnpkg.com/package/axios)
 2. [Dotenv](https://yarnpkg.com/package/dotenv)
 3. [Dotenv Expand](https://yarnpkg.com/package/dotenv-expand)
+4. [react-toast-notifications](https://jossmac.github.io/react-toast-notifications/)
