@@ -1,6 +1,8 @@
 # Rokket Labs Frontend Test
 
-### How to test project?
+### How to try project?
+
+This project depends on [Rokket Labs Test Backend](https://github.com/Alejandrehl/rokket-labs-test-backend). Make sure to run the backend first for the frontend to work properly.
 
 1. `git clone git@github.com:Alejandrehl/rokket-labs-test-frontend.git`
 2. `cd rokket-labs-test-frontend`
