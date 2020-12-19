@@ -17,7 +17,7 @@ const MonstersReducer = (state, action) => {
     case CREATE_MONSTER:
       return {
         ...state,
-        monsters: [...state.monsters, action.payload],
+        monsters: [action.payload, ...state.monsters],
         loading: false,
       };
     case DELETE_MONSTER:
