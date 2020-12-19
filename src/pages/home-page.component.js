@@ -1,20 +1,16 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import CardList from "../components/card-list/card-list.component";
-import SearchBox from "../components/search-box/search-box.component";
-import Spinner from "../components/spinner/spinner.component";
+import CreateMonsterForm from "../components/create-monster-form/create-monster-form.component";
 import MonstersContext from "../context/monsters/monsters.context";
 
 const HomePage = () => {
   const monstersContext = useContext(MonstersContext);
-  const { getMonsters, loading, monsters, deleteMonster } = monstersContext;
-
-  const [searchField, setSearchField] = useState("");
-
-  const onChangeSearch = (e) => setSearchField(e.target.value);
-
-  const filteredMonsters = monsters.filter((monster) =>
-    monster.name.toLowerCase().includes(searchField.toLowerCase())
-  );
+  const {
+    getMonsters,
+    monsters,
+    deleteMonster,
+    createMonster,
+  } = monstersContext;
 
   useEffect(() => {
     getMonsters();
@@ -24,16 +20,8 @@ const HomePage = () => {
   return (
     <div className="App">
       <h1>Rokket Labs Frontend Test</h1>
-      <SearchBox
-        searchField={searchField}
-        onChangeSearch={onChangeSearch}
-        placeholder={"Search monster"}
-      />
-      {loading ? (
-        <Spinner />
-      ) : (
-        <CardList monsters={filteredMonsters} deleteAction={deleteMonster} />
-      )}
+      <CreateMonsterForm submitAction={createMonster} />
+      <CardList monsters={monsters} deleteAction={deleteMonster} />
     </div>
   );
 };
